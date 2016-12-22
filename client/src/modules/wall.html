@@ -1,0 +1,57 @@
+<template>
+	<div class="container">
+		<div class="row marginBottom marginTop vertical-align">
+			<div class="input-group col-lg-2">
+				<input value.bind="searchScreenName" class="form-control" type="text" placeholder="Screen name">
+				<span class="input-group-addon" click.trigger="findUser()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			</div>
+			<div class="col-lg-2 col-lg-offset-9 pull-right">
+				<span show.bind="notMe" click.trigger="home()" class="glyphicon glyphicon-home marginLeft"></span>
+				<span show.bind="notMe" click.trigger="follow()" class="glyphicon glyphicon-user marginLeft"></span>
+				<span click.trigger="logout()" class="glyphicon glyphicon-log-out marginLeft"></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="col-md-2">
+					<img click.trigger="getChirps()" src="../src/resources/img/chirpLogo.jpg" />
+				</div>
+				<div class="col-md-2 pull-right">
+					<h2>${users.selectedUser.screenName}</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="panel panel-default marginTop" show.bind="users.selectedUser._id == user._id">
+			<div class=="panel-body">
+				<p><textarea value.bind="newChirp" id="chirp" row="1" cols="153"></textarea></p>
+				<p><button click.trigger="chirp()" class="btn btn-primary" id="btnChirp">Chirp</button></p>
+				<div innerhtml.bind="saveStatus"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div show.bind="wallMessage.length > 0" innerhtml.bind="wallMessage"></div>
+			<ul class="list-group">
+				<li class="list-group-item" repeat.for="chirp of chirps.chirpArray">
+					<div class="media-left" innerhtml='${chirp.chirpAuthor.email| gravatarUrl:40}'></div>
+					<div class="media-body">
+						<div class="col-lg-12">
+							<p>${chirp.chirp} <span show.bind="chirp.reChirp">[RC]</span></p>
+						</div>
+						<div class="col-lg-12">
+							<span class="smallFont">${chirp.dateCreated| dateFormat}</span>
+							<span click.trigger='like($index)' class="glyphicon glyphicon-thumbs-up"></span> ${chirp.likes}
+							<span click.trigger='reChirp(chirp)' class="glyphicon glyphicon-retweet"></span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>

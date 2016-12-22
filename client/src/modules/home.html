@@ -1,0 +1,26 @@
+<template>
+  <div class='container'>
+    <div class="col-lg-1 input-group marginTop marginBottom">
+            <span show.bind="!showLogon" click.trigger="showRegister()" class=" glyphicon glyphicon-arrow-left leftMargin">
+	 </span>
+</div>
+</div>
+	 <div class='container'>
+    <div class="panel panel-default topMargin">
+      <div class="panel-body">
+        <div class="col-lg-5">
+          <h1>${message}</h1>
+          </div>
+        <div class="col-lg-3 pull-right">
+          <img src="http://localhost:9000/src/resources/img/chirpLogo.jpg" />
+        </div>
+      </div>
+    </div>
+  </div>
+   <div style="margin-top:10px;">
+      <compose show.bind="showLogon" view="./components/login.html"></compose>
+      <compose show.bind="!showLogon" view="./components/register.html"></compose>
+      <compose Forgot password></compose>
+ </div>
+
+</template>

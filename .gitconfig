@@ -1,0 +1,10 @@
+[user]
+	name = mohammad
+	emal = nurbhas2@uwm.edu
+	email = nurbhas2@uwm.edu
+[core]
+	editor = C:\\Program Files (x86)\\Microsoft VS Code\\code.exe
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
