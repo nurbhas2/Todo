@@ -6,7 +6,7 @@ var UserSchema = new Schema({
     firstName: { type: String, required: true}, 			// Required validation
     lastName: { type: String, required: true},              // Required validation
     screenName: { type: String, required: true },           // Required validation
-    email: { type: String, unique:true, required: true },  // Match validation regex
+    email: { type: String, required: true },  // Match validation regex
     password: { type: String, required: true },             // Required validation
     dateRegistered: { type: Date, default: Date.now },      // Default to Current Date 
     follow: [{ type: Schema.Types.ObjectId, ref: 'User'}]   // Reference User to the schema Types
