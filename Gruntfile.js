@@ -1,9 +1,9 @@
 module.exports = function(grunt) {
-
+ 
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
+ 
     env : {
       dev : {
         NODE_ENV : 'development'
@@ -12,16 +12,15 @@ module.exports = function(grunt) {
         NODE_ENV : 'production'
       }
      },
- 
   nodemon: {
       dev:{script: 'index.js'}
   }
-
- });
-
+ 
+});
+ 
   grunt.loadNpmTasks('grunt-contrib-nodemon');
   grunt.loadNpmTasks('grunt-env');
-
+ 
   grunt.registerTask('default',  [
       'env:dev',
       'nodemon'
@@ -30,5 +29,5 @@ module.exports = function(grunt) {
       'env:production',
       'nodemon'
     ]);
-
+ 
 };
