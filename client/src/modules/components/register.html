@@ -1,0 +1,31 @@
+<template>
+    <div class="col-lg-5 col-lg-offset-3" id="RegistrationForm" input-group="marginTop">
+        <div innerhtml.bind="registerError"></div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email Address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" value.bind="email & validate">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputScreenName">Screen Name</label>
+            <input type="text" class="form-control" id="exampleInputScreenName" aria-describedby="screenNameHelp" placeholder="Enter Screen Name"
+                value.bind="screenName & validate">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFirstName">First Name</label>
+            <input type="text" class="form-control" id="exampleInputFirstName" aria-describedby="firstNameHelp" placeholder="Enter First Name"
+                value.bind="firstName & validate">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputLastName">Last Name</label>
+            <input type="text" class="form-control" id="exampleInputLastName" aria-describedby="lastNameHelp" placeholder="Enter Last Name"
+                value.bind="lastName & validate">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword">Password</label>
+            <input type="text" class="form-control" id="exampleInputPassword" aria-describedby="passwordHelp" placeholder="Enter Password"
+                value.bind="password & validate">
+        </div>
+        <button click.delegate="save()" class="btn btn-primary">Submit</button>
+        </form>
+</template>

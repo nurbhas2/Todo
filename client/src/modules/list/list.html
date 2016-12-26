@@ -1,0 +1,50 @@
+<template>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <d class="navbar-brand" href="#">${user.firstName} ${user.lastName}'s To Do List</a>
+            </div>
+
+            <div class="coallapse navbar-collaose">
+                <ul class="nav navbar-nav">
+
+                </ul>
+                <div class="navbar-right">
+                    <ul class+ "nav navbar-nav">
+                        <li><a><span click.trigger="newTodo()"><i class="fa fa-plus"></i></span></a></li>
+                        <li><a><span click.trigger="refreshTodos()"><i class="fa fa-refresh"></i></span></a></li>
+                        <li><a><span click.trigger="logout()"><i class="fa fa-sign-out"></i></span></a></li>
+                    </ul>
+                </div>
+        </nav>
+        
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Done</th>
+                        <th>Due Date</th>
+                        <th>Priority</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr repeat.for="todo of todos.todoArray | hideCompleted:hideCompleted">
+                        <td click.trigger="edit($index)">${todo.task}</td>
+                        <td click.trigger='toggleDone($index)'><span innerhtml.bind="todo.completed | done"></span></td>
+                        <td>${todo.dueDate | dateFormat:config.DATE_FORMAT_TABLE:true}</td>
+                        <td>${todo.prority}</td>
+                        <td click.trigger="deleteTodo($index)"><i class="fa fa-trash-o"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+            <span click.trigger="toggleHideCompleted()" innerhtml.bind="hideCompleted | done" style="margin-right:4PX;"></span>Hide completed
+        
+        </div>
+    
+        </div>
+        
+</template>

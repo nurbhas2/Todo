@@ -1,0 +1,31 @@
+<template>
+
+	<div class="container">
+		<div class="panel-body">
+			<h2>Todo</h2>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Description</th>
+						<th>Done</th>
+						<th>DueDate</th>
+						<th>Priority</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr click.trigger="edit($index)" repeat.for="todo of todo.todoArray | hideCompleted:hideCompleted">
+						<td>${todo.task}</td>
+						<td click.trigger='toggleDone($index)'><span innerhtml='${todo.completed | done}'></span></td>
+						<td>${todo.dueDate | dateFormat:config.DATE_FORMAT_TABLE:true}</td>
+						<td>${todo.priority}</td>
+						<td click.trigger="deleteTodo($index)"><i class="fa fa-trash-o"></i></td>
+					</tr>
+				</tbody>
+			</table>
+			<span click.trigger="toggleHideCompleted()" innerhtml.bind="hideCompleted | done" style="margin-right:5px;"></span>Hide
+			Completed
+		</div>
+	</div>
+
+	</template

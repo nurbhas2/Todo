@@ -1,0 +1,37 @@
+<template>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">${user.firstName} ${user.lastName}'s To Do List</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href=""><span click.trigger="save()"><i class="fa fa-save"></i></span></a></li>
+                        <li><a href=""><span click.trigger="cancel()"><i class="fa fa-ban"></i></span></a></li>
+                    </ul>
+                </div>
+        </nav>
+        <div class="panel">
+            <div class="input-group col-md-12">
+                <label for='actionText'>Task:</label>
+                <input name='actionText' class="form-control" type='text' placeholder='Task' value.bind='todos.selectedTodo.todo' />
+            </div>
+            <div class="input-group col-md-12">
+                <label for='dueDate'>Due Date:</label>
+                <input id="dueDate" name='dueDate' class="form-control" type='date' value.bind='todos.selectedTodo.dueDate' />
+            </div>
+            <div class="input-group col-md-12">
+                <label for='priority'>Priority:</label>
+                <select name='priority' class="form-control" value.bind='todos.selectedTodo.priority' />
+                <option>-- Select an Option --</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+                </select>
+            </div>
+        </div>
+        </div>
+</template>
